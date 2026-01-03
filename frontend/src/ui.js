@@ -12,6 +12,7 @@ import { OutputNode } from "./nodes/outputNode";
 import { TextNode } from "./nodes/textNode";
 
 import "reactflow/dist/style.css";
+import { MergeNode } from "./nodes/MergeNode";
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
@@ -20,6 +21,7 @@ const nodeTypes = {
   llm: LLMNode,
   customOutput: OutputNode,
   text: TextNode,
+  customMerge: MergeNode,
 };
 
 const selector = (state) => ({
