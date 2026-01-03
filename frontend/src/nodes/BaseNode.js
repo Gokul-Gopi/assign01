@@ -4,9 +4,9 @@ export function BaseNode({ title, handles = [], children }) {
   return (
     <div
       // className={className}
-      className="bg-white rounded-xl border border-slate-200 shadow-sm px-3 py-2 text-slate-800 min-w-[15rem]"
+      className="bg-white border-solid border border-gray-100 shadow-md rounded-xl border border-slate-200 shadow-sm px-3 py-2 text-slate-800 min-w-[15rem]"
     >
-      <div className="font-semibold text-sm mb-2">{title}</div>
+      <div className="font-semibold mb-2">{title}</div>
 
       <div className="text-sm space-y-2">{children}</div>
 
@@ -17,6 +17,7 @@ export function BaseNode({ title, handles = [], children }) {
           position={h.position}
           id={h.id}
           style={h.top != null ? { top: `${h.top}%` } : undefined}
+          className="!bg-primary-500 !w-2 !h-2"
         />
       ))}
     </div>
