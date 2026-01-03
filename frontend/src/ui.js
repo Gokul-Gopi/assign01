@@ -13,6 +13,10 @@ import { TextNode } from "./nodes/textNode";
 
 import "reactflow/dist/style.css";
 import { MergeNode } from "./nodes/MergeNode";
+import { MathNode } from "./nodes/MatchNode";
+import { DelayNode } from "./nodes/DelayNode";
+import { SplitNode } from "./nodes/SplitNode";
+import { FilterNode } from "./nodes/FilterNode";
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
@@ -22,6 +26,10 @@ const nodeTypes = {
   customOutput: OutputNode,
   text: TextNode,
   customMerge: MergeNode,
+  customMath: MathNode,
+  customDelay: DelayNode,
+  customSplit: SplitNode,
+  customFilter: FilterNode,
 };
 
 const selector = (state) => ({

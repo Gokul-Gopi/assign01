@@ -1,4 +1,3 @@
-// BaseNode.jsx
 import { Handle } from "reactflow";
 
 export function BaseNode({

@@ -18,6 +18,10 @@ export const PipelineToolbar = () => {
         <DraggableNode type="customOutput" label="Output" />
         <DraggableNode type="text" label="Text" />
         <DraggableNode type="customMerge" label="Merge" />
+        <DraggableNode type="customMath" label="Math" />
+        <DraggableNode type="customDelay" label="Delay" />
+        <DraggableNode type="customSplit" label="Split" />
+        <DraggableNode type="customFilter" label="Filter" />
       </div>
     </div>
   );
