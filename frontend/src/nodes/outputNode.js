@@ -1,47 +1,49 @@
 // outputNode.js
-
-import { useState } from 'react';
-import { Handle, Position } from 'reactflow';
+import { useState } from "react";
+import { Position } from "reactflow";
+import { BaseNode } from "./BaseNode";
 
 export const OutputNode = ({ id, data }) => {
-  const [currName, setCurrName] = useState(data?.outputName || id.replace('customOutput-', 'output_'));
-  const [outputType, setOutputType] = useState(data.outputType || 'Text');
-
-  const handleNameChange = (e) => {
-    setCurrName(e.target.value);
-  };
-
-  const handleTypeChange = (e) => {
-    setOutputType(e.target.value);
-  };
+  const [currName, setCurrName] = useState(
+    data?.outputName || id.replace("customOutput-", "output_")
+  );
+  const [outputType, setOutputType] = useState(data?.outputType || "Text");
 
   return (
-    <div style={{width: 200, height: 80, border: '1px solid black'}}>
-      <Handle
-        type="target"
-        position={Position.Left}
-        id={`${id}-value`}
-      />
-      <div>
-        <span>Output</span>
-      </div>
-      <div>
-        <label>
-          Name:
-          <input 
-            type="text" 
-            value={currName} 
-            onChange={handleNameChange} 
+    <BaseNode
+      title="Output"
+      handles={[
+        {
+          type: "target",
+          position: Position.Left,
+          id: `${id}-value`,
+        },
+      ]}
+    >
+      <div style={{ display: "flex", gap: 8, flexDirection: "column" }}>
+        <label
+          style={{ display: "flex", justifyContent: "space-between", gap: 8 }}
+        >
+          <span>Name:</span>
+          <input
+            value={currName}
+            onChange={(e) => setCurrName(e.target.value)}
           />
         </label>
-        <label>
-          Type:
-          <select value={outputType} onChange={handleTypeChange}>
+
+        <label
+          style={{ display: "flex", justifyContent: "space-between", gap: 8 }}
+        >
+          <span>Type:</span>
+          <select
+            value={outputType}
+            onChange={(e) => setOutputType(e.target.value)}
+          >
             <option value="Text">Text</option>
-            <option value="File">Image</option>
+            <option value="Image">Image</option>
           </select>
         </label>
       </div>
-    </div>
+    </BaseNode>
   );
-}
+};
