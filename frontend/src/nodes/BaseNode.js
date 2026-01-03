@@ -1,36 +1,15 @@
 import { Handle } from "reactflow";
 
-export function BaseNode({
-  title,
-  handles = [],
-  width = 220,
-  minHeight = 80,
-  style,
-  className,
-  children,
-}) {
+export function BaseNode({ title, handles = [], children }) {
   return (
     <div
-      className={className}
-      style={{
-        width,
-        minHeight,
-        border: "1px solid #111",
-        borderRadius: 10,
-        background: "white",
-        padding: 10,
-        boxSizing: "border-box",
-        position: "relative",
-        ...style,
-      }}
+      // className={className}
+      className="bg-white rounded-xl border border-slate-200 shadow-sm px-3 py-2 text-slate-800 min-w-[15rem]"
     >
-      {/* Header */}
-      <div style={{ fontWeight: 700, marginBottom: 8 }}>{title}</div>
+      <div className="font-semibold text-sm mb-2">{title}</div>
 
-      {/* Body */}
-      <div>{children}</div>
+      <div className="text-sm space-y-2">{children}</div>
 
-      {/* Handles */}
       {handles.map((h) => (
         <Handle
           key={h.id}

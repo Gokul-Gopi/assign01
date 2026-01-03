@@ -52,7 +52,11 @@ export const SubmitButton = () => {
         justifyContent: "center",
       }}
     >
-      <button type="submit" onClick={onSubmit}>
+      <button
+        className="bg-primary-500 text-white px-4 py-2 rounded-md"
+        type="submit"
+        onClick={onSubmit}
+      >
         Submit
       </button>
     </div>
