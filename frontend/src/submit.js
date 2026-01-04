@@ -1,5 +1,6 @@
 // submit.js
 
+import { Send, SendHorizontal } from "lucide-react";
 import { useStore } from "./store";
 import { shallow } from "zustand/shallow";
 
@@ -53,11 +54,12 @@ export const SubmitButton = () => {
       }}
     >
       <button
-        className="bg-primary-500 text-white px-4 py-2 rounded-md"
+        className="bg-primary-500 flex items-center gap-2 text-white px-4 py-2 rounded-md"
         type="submit"
         onClick={onSubmit}
       >
         Submit
+        <SendHorizontal size={16} className="translate-y-[1px]" />
       </button>
     </div>
   );

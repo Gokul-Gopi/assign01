@@ -1,12 +1,13 @@
 // toolbar.js
 
 import { DraggableNode } from "./draggableNode";
+import { Grip } from "lucide-react";
 
 export const PipelineToolbar = () => {
   return (
     <div>
-      <p className="text-xl font-medium text-[#6c6c8a] my-4">
-        Drag and drop nodes to build your pipeline
+      <p className="text-xl flex items-center gap-2 font-medium text-[#6c6c8a] my-4">
+        <Grip /> Drag and drop nodes to build your pipeline
       </p>
       <div className="shadow border-primary border flex flex-wrap gap-2 p-2 rounded-lg">
         <DraggableNode type="customInput" label="Input" />
