@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Position } from "reactflow";
 import { BaseNode } from "./BaseNode";
+import LabelText from "./LabelText";
 
 const VAR_REGEX = /\{\{\s*([A-Za-z_$][A-Za-z0-9_$]*)\s*\}\}/g;
 
@@ -8,7 +9,7 @@ export const TextNode = ({ id, data }) => {
   const [currText, setCurrText] = useState(data?.text || "{{input}}");
   const textareaRef = useRef(null);
 
-  // 1) Extract variables from text (unique + stable order)
+  // Extract variables from text (unique + stable order)
   const variables = useMemo(() => {
     const found = [];
     const seen = new Set();
@@ -25,18 +26,18 @@ export const TextNode = ({ id, data }) => {
     return found;
   }, [currText]);
 
-  // 2) Auto-resize textarea (height)
+  // Auto-resize textarea (height)
   useEffect(() => {
     const el = textareaRef.current;
     if (!el) return;
 
-    el.style.height = "auto"; // reset then set to scrollHeight
+    el.style.height = "auto";
     el.style.height = `${el.scrollHeight}px`;
   }, [currText]);
 
-  // 3) Build handles:
-  //    - left handles for variables
-  //    - right output handle
+  // Build handles:
+  //   - left handles for variables
+  //   - right output handle
   const handles = useMemo(() => {
     const left = variables.map((v, i) => {
       const top =
@@ -59,7 +60,7 @@ export const TextNode = ({ id, data }) => {
   return (
     <BaseNode title="Text" handles={handles} width={260} minHeight={100}>
       <label style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-        <span>Text:</span>
+        <LabelText>Text:</LabelText>
 
         <textarea
           ref={textareaRef}

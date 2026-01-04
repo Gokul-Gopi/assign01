@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Position } from "reactflow";
 import { BaseNode } from "./BaseNode";
+import LabelText from "./LabelText";
 
 export const DelayNode = ({ id, data }) => {
   const [ms, setMs] = useState(data?.ms ?? 500);
@@ -16,7 +17,7 @@ export const DelayNode = ({ id, data }) => {
       <label
         style={{ display: "flex", justifyContent: "space-between", gap: 8 }}
       >
-        <span>ms:</span>
+        <LabelText>ms:</LabelText>
         <input
           type="number"
           value={ms}

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Position } from "reactflow";
 import { BaseNode } from "./BaseNode";
+import LabelText from "./LabelText";
 
 export const OutputNode = ({ id, data }) => {
   const [currName, setCurrName] = useState(
@@ -24,7 +25,7 @@ export const OutputNode = ({ id, data }) => {
         <label
           style={{ display: "flex", justifyContent: "space-between", gap: 8 }}
         >
-          <span>Name:</span>
+          <LabelText>Name:</LabelText>
           <input
             value={currName}
             onChange={(e) => setCurrName(e.target.value)}
@@ -34,7 +35,7 @@ export const OutputNode = ({ id, data }) => {
         <label
           style={{ display: "flex", justifyContent: "space-between", gap: 8 }}
         >
-          <span>Type:</span>
+          <LabelText>Type:</LabelText>
           <select
             value={outputType}
             onChange={(e) => setOutputType(e.target.value)}

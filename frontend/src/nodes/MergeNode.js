@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Position } from "reactflow";
 import { BaseNode } from "./BaseNode";
+import LabelText from "./LabelText";
 
 export const MergeNode = ({ id, data }) => {
   const [mode, setMode] = useState(data?.mode || "concat");
@@ -17,7 +18,7 @@ export const MergeNode = ({ id, data }) => {
       <label
         style={{ display: "flex", justifyContent: "space-between", gap: 8 }}
       >
-        <span>Mode:</span>
+        <LabelText>Mode:</LabelText>
         <select value={mode} onChange={(e) => setMode(e.target.value)}>
           <option value="concat">Concat</option>
           <option value="json">JSON</option>

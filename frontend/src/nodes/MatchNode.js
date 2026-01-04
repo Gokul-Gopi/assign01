@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Position } from "reactflow";
 import { BaseNode } from "./BaseNode";
+import LabelText from "./LabelText";
 
 export const MathNode = ({ id, data }) => {
   const [op, setOp] = useState(data?.op || "add");
@@ -17,7 +18,7 @@ export const MathNode = ({ id, data }) => {
       <label
         style={{ display: "flex", justifyContent: "space-between", gap: 8 }}
       >
-        <span>Op:</span>
+        <LabelText>Op:</LabelText>
         <select value={op} onChange={(e) => setOp(e.target.value)}>
           <option value="add">A + B</option>
           <option value="sub">A - B</option>
